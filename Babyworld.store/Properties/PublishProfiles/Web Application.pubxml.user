@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Web Application</_PublishTargetUrl>
+    <History>True|2024-01-15T12:05:00.3313514Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Addproduct.aspx">
+      <publishTime>02/12/2022 09:34:28</publishTime>
+    </File>
+    <File Include="AdminLogin.aspx">
+      <publishTime>10/23/2023 22:45:39</publishTime>
+    </File>
+    <File Include="AdminMaster.Master">
+      <publishTime>10/23/2023 22:45:32</publishTime>
+    </File>
+    <File Include="Adminpanel.aspx">
+      <publishTime>02/12/2022 09:34:12</publishTime>
+    </File>
+    <File Include="AdminSignup.aspx">
+      <publishTime>02/12/2022 09:34:52</publishTime>
+    </File>
+    <File Include="Admin_management.aspx">
+      <publishTime>02/14/2022 06:28:48</publishTime>
+    </File>
+    <File Include="Allproducts.aspx">
+      <publishTime>02/12/2022 09:34:04</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-grid.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-grid.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-grid.min.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-grid.min.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-grid.rtl.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-grid.rtl.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-grid.rtl.min.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-grid.rtl.min.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-reboot.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-reboot.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-reboot.min.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-reboot.min.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-reboot.rtl.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-reboot.rtl.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-reboot.rtl.min.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-utilities.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-utilities.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-utilities.min.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-utilities.min.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-utilities.rtl.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-utilities.rtl.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-utilities.rtl.min.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap.min.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap.min.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap.rtl.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap.rtl.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap.rtl.min.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/css/bootstrap.rtl.min.css.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.bundle.js">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.bundle.js.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.bundle.min.js">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.bundle.min.js.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.esm.js">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.esm.js.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.esm.min.js">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.esm.min.js.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.js">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.js.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.min.js">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/bootstrap/js/bootstrap.min.js.map">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/css/AdminMaster.min.css">
+      <publishTime>02/12/2022 04:30:36</publishTime>
+    </File>
+    <File Include="assets/css/AdminMaster1.css">
+      <publishTime>02/09/2022 05:08:08</publishTime>
+    </File>
+    <File Include="assets/css/CustomerMaster.css">
+      <publishTime>02/05/2022 20:59:20</publishTime>
+    </File>
+    <File Include="assets/css/mdb.min.css">
+      <publishTime>02/12/2022 04:44:10</publishTime>
+    </File>
+    <File Include="assets/css/ProductDetail.css">
+      <publishTime>01/31/2022 06:47:46</publishTime>
+    </File>
+    <File Include="assets/css/slicknav.min.css">
+      <publishTime>02/01/2022 08:27:06</publishTime>
+    </File>
+    <File Include="assets/css/style.css">
+      <publishTime>01/06/2022 08:08:40</publishTime>
+    </File>
+    <File Include="assets/images/admin.jpg">
+      <publishTime>01/22/2022 02:55:00</publishTime>
+    </File>
+    <File Include="assets/images/icon/cart.png">
+      <publishTime>02/04/2022 03:20:48</publishTime>
+    </File>
+    <File Include="assets/images/icon/search.png">
+      <publishTime>02/04/2022 03:20:48</publishTime>
+    </File>
+    <File Include="assets/images/logo2.PNG">
+      <publishTime>01/07/2022 06:42:58</publishTime>
+    </File>
+    <File Include="assets/images/sliderimg1.jpg">
+      <publishTime>01/07/2022 09:49:40</publishTime>
+    </File>
+    <File Include="assets/images/sliderimg2.jpg">
+      <publishTime>01/07/2022 09:54:40</publishTime>
+    </File>
+    <File Include="assets/images/sliderimg3.jpg">
+      <publishTime>01/07/2022 20:36:08</publishTime>
+    </File>
+    <File Include="assets/jquery/bootstrap.min.js">
+      <publishTime>02/12/2022 04:57:40</publishTime>
+    </File>
+    <File Include="assets/jquery/jquery.slicknav.js">
+      <publishTime>02/07/2022 01:48:42</publishTime>
+    </File>
+    <File Include="assets/jquery/main.js">
+      <publishTime>02/07/2022 01:48:42</publishTime>
+    </File>
+    <File Include="assets/jquery/mdb.min.js">
+      <publishTime>02/12/2022 04:57:40</publishTime>
+    </File>
+    <File Include="assets/js/main.js">
+      <publishTime>01/22/2022 23:46:48</publishTime>
+    </File>
+    <File Include="assets/js/mdb.min.js">
+      <publishTime>02/12/2022 04:38:38</publishTime>
+    </File>
+    <File Include="assets/js/plugins.js">
+      <publishTime>01/22/2022 23:46:38</publishTime>
+    </File>
+    <File Include="bin/Babyworld.store.dll">
+      <publishTime>01/15/2024 14:04:57</publishTime>
+    </File>
+    <File Include="bin/Babyworld.store.pdb">
+      <publishTime>01/15/2024 14:04:57</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>01/06/2022 07:48:32</publishTime>
+    </File>
+    <File Include="Checkout.aspx">
+      <publishTime>02/13/2022 06:54:20</publishTime>
+    </File>
+    <File Include="Contact.aspx">
+      <publishTime>02/05/2022 20:47:44</publishTime>
+    </File>
+    <File Include="CustomerLogin.aspx">
+      <publishTime>02/10/2022 02:11:28</publishTime>
+    </File>
+    <File Include="CustomerMaster.Master">
+      <publishTime>10/23/2023 22:45:35</publishTime>
+    </File>
+    <File Include="CustomerRegistration.aspx">
+      <publishTime>02/10/2022 02:14:16</publishTime>
+    </File>
+    <File Include="Errorpage.aspx">
+      <publishTime>02/05/2022 21:54:28</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/02/2022 04:13:24</publishTime>
+    </File>
+    <File Include="Homepage.aspx">
+      <publishTime>10/22/2023 14:47:55</publishTime>
+    </File>
+    <File Include="Logout.aspx">
+      <publishTime>01/06/2022 07:59:16</publishTime>
+    </File>
+    <File Include="Model1.edmx.diagram">
+      <publishTime>10/15/2023 12:26:48</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/14/2024 21:26:03</publishTime>
+    </File>
+    <File Include="ProductDetail.aspx">
+      <publishTime>02/07/2022 02:00:48</publishTime>
+    </File>
+    <File Include="ShoppingCart.aspx">
+      <publishTime>02/12/2022 09:53:34</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/15/2024 15:04:25</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

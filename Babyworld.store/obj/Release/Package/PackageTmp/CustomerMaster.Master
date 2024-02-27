@@ -1,0 +1,150 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CustomerMaster.master.cs" Inherits="Babyworld.store.CustomerMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title></title>
+
+    <link type="text/css" href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="assets/css/slicknav.min.css" rel="stylesheet" />
+    <link type="text/css" href="assets/css/CustomerMaster.css" rel="stylesheet" />
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <!-- Offcanvas Menu Begin -->
+            <div class="offcanvas-menu-overlay"></div>
+            <div class="offcanvas-menu-wrapper">
+                <div class="offcanvas__option">
+                    <div class="offcanvas__links">
+                        <asp:Button ID="Button1" runat="server" OnClick="btnlogin_Click" Text="Sign In" CssClass="btn-dark" />
+                        <asp:Button ID="Button2" runat="server" OnClick="btnSignup_Click" Text="Sign Up" CssClass="btn-dark" />
+                    </div>
+                </div>
+                <div class="offcanvas__nav__option">
+                    <asp:ImageButton ID="ImageButton1" runat="server" CssClass="search-switch" ImageUrl="~/assets/images/icon/cart.png" OnClick="btncart_Click" />
+                    <asp:Label ID="cartqty" runat="server" Text=""></asp:Label>
+                </div>
+                <div id="mobile-menu-wrap"></div>
+                <div class="offcanvas__text">
+                    <p>30-day return or refund guarantee.</p>
+                </div>
+            </div>
+            <!-- Offcanvas Menu End -->
+
+            <!-- Header Section Begin -->
+            <header class="header">
+                <div class="header__top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-7">
+                                <div class="header__top__left">
+                                    <p>30-day return or refund guarantee.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-5">
+                                <div class="header__top__right">
+                                    <div class="header__top__links">
+                                        <asp:Button ID="btnlogin" runat="server" OnClick="btnlogin_Click" Text="Sign In" CssClass="btn-dark" />
+                                        <asp:Button ID="btnSignup" runat="server" OnClick="btnSignup_Click" Text="Sign Up" CssClass="btn-dark mr-3" />
+                                        <asp:Label ID="lblname" runat="server" Font-Size="18px" ForeColor="white" CssClass="mr-3"></asp:Label>
+                                        <asp:Button ID="btnlogout" runat="server" OnClick="btnlogout_Click" Text="Log Out" CssClass="btn-dark mr-3" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="header__logo">
+                                <asp:ImageButton ID="logo" runat="server" ImageUrl="~/assets/images/logo2.PNG" AlternateText="logo" OnClick="logo_Click" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <nav class="header__menu mobile-menu">
+                                <ul>
+                                    <li class="active">
+                                        <asp:LinkButton ID="btnhome" runat="server" Text="Home" CommandName="home" OnCommand="btnhome_Command" CommandArgument="Home" Font-Underline="false"></asp:LinkButton>
+                                    </li>
+                                    <li>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Shopping Cart" CommandName="cart" OnCommand="btnhome_Command" CommandArgument="ShoppingCart" Font-Underline="false"></asp:LinkButton>
+                                    </li>
+                                    <li>
+                                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Checkout" CommandName="checkout" OnCommand="btnhome_Command" CommandArgument="Checkout" Font-Underline="false"></asp:LinkButton>
+                                    </li>
+                                    <li>
+                                        <asp:LinkButton ID="LinkButton3" runat="server" Text="Contact" CommandName="contact" OnCommand="btnhome_Command" CommandArgument="Contact" Font-Underline="false"></asp:LinkButton>
+                                    </li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-2 col-md-2">
+                            <div class="header__nav__option">
+                                <asp:ImageButton ID="btncart" runat="server" CssClass="search-switch" ImageUrl="~/assets/images/icon/cart.png" OnClick="btncart_Click" AlternateText="Shopping Cart" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="canvas__open"><i class="fa fa-bars"></i></div>
+                </div>
+            </header>
+            <!-- Header Section End -->
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+            <!-- Footer Section Begin -->
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="footer__copyright__text">
+                                <p>
+                                    Copyright ©                               
+                                    2022
+                            All rights reserved
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Footer Section End -->
+
+            <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+            <script src="assets/jquery/jquery.slicknav.js"></script>
+            <script src="assets/jquery/main.js"></script>
+
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+            <script src="assets/js/main.js"></script>
+            <script src="assets/js/plugins.js"></script>
+
+
+
+
+        </div>
+    </form>
+</body>
+</html>

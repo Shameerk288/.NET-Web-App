@@ -1,0 +1,17 @@
+c:\users\shameer khan\documents\visual studio 2012\Projects\Babyworld.store\Babyworld.store\bin\Babyworld.store.dll
+c:\users\shameer khan\documents\visual studio 2012\Projects\Babyworld.store\Babyworld.store\bin\Babyworld.store.pdb
+c:\users\shameer khan\documents\visual studio 2012\Projects\Babyworld.store\Babyworld.store\bin\EntityFramework.dll
+c:\users\shameer khan\documents\visual studio 2012\Projects\Babyworld.store\Babyworld.store\bin\EntityFramework.xml
+c:\users\shameer khan\documents\visual studio 2012\Projects\Babyworld.store\Babyworld.store\obj\Debug\Babyworld.store.dll
+c:\users\shameer khan\documents\visual studio 2012\Projects\Babyworld.store\Babyworld.store\obj\Debug\Babyworld.store.pdb
+C:\Users\Shameer Khan\documents\visual studio 2012\Projects\Babyworld.store\Babyworld.store\obj\Debug\Babyworld.store.csprojResolveAssemblyReference.cache
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\Babyworld.store.dll.config
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\Babyworld.store.dll
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\Babyworld.store.pdb
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\EntityFramework.dll
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\EntityFramework.xml
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Debug\Babyworld.store.dll
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Debug\Babyworld.store.pdb
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Debug\Babyworld.store.csproj.AssemblyReference.cache
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Debug\Babyworld.store.csproj.CoreCompileInputs.cache
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Debug\Babyworld.store.csproj.CopyComplete

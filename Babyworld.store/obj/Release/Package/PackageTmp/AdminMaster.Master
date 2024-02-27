@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.Master.cs" Inherits="Babyworld.store.Ecommerce" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title></title>
+
+    <link type="text/css" href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/mdb.min.css" rel="stylesheet" />
+    <link href="assets/css/AdminMaster.min.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body class="grey lighten-3">
+
+    <form id="form1" runat="server">
+        <div>
+            <!--Main Navigation-->
+            <header>
+                <!-- Navbar -->
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+                    <div class="container">
+
+                        <asp:Image ID="logoimg" runat="server" ImageUrl="~/assets/images/logo2.PNG" CssClass="navbar-brand waves-effect" />
+
+
+                        <!-- Collapse -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <!-- Links -->
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <asp:LinkButton ID="Button1" runat="server" OnClick="admin_management_Click" Text="Admin Management" CssClass="nav-link waves-effect" ValidationGroup="AdminButtons" />
+                                </li>
+                               <%-- <li class="nav-item">
+                                    <asp:LinkButton ID="Button2" runat="server" OnClick="btnNewAdmin_Click" Text="Add New Admin" CssClass="nav-link waves-effect" ValidationGroup="AdminButtons" />
+                                </li>--%>
+                                <li class="nav-item">
+                                    <asp:LinkButton ID="Button3" runat="server" OnClick="allproducts_Click" Text="All Products" CssClass="nav-link waves-effect" ValidationGroup="AdminButtons" />
+                                </li>
+                                <%--<li class="nav-item">
+                                    <asp:LinkButton ID="Button4" runat="server" OnClick="btnNewProduct_Click" Text="Add Product" CssClass="nav-link waves-effect" ValidationGroup="AdminButtons" />
+                                </li>--%>
+                                <li class="nav-item">
+                                    <asp:LinkButton ID="Button5" runat="server" OnClick="btnhome_Click" Text="Homepage" CssClass="nav-link waves-effect" ValidationGroup="AdminButtons" />
+                                </li>
+                                <li class="nav-item">
+                                    <asp:LinkButton ID="Button6" runat="server" OnClick="btnlogout_Click" Text="Logout" CssClass="nav-link waves-effect" ValidationGroup="AdminButtons" />
+                                </li>
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+                </nav>
+                <!-- Navbar -->
+
+                <!-- Sidebar -->
+                <div class="sidebar-fixed position-fixed">
+                    <h1 class="logo-wrapper waves-effect">Admin Dashboard</h1>
+
+                    <div class="list-group list-group-flush">
+                        <ul style="list-style-type: none;">
+                            <li>
+                                <asp:Button ID="btnAdmins" runat="server" OnClick="admin_management_Click" Text="Admin Management" CssClass="list-group-item active waves-effect mb-2" ValidationGroup="AdminButtons" />
+                            </li>
+                            <%--<li>
+                                <asp:Button ID="btnNewAdmin" runat="server" OnClick="btnNewAdmin_Click" Text="Add New Admin" CssClass="list-group-item active waves-effect mb-2" ValidationGroup="AdminButtons" />
+                            </li>--%>
+                            <li>
+                                <asp:Button ID="btnProducts" runat="server" OnClick="allproducts_Click" Text="All Products" CssClass="list-group-item waves-effect active mb-2" ValidationGroup="AdminButtons" />
+                            </li>
+                            <%--<li>
+                                <asp:Button ID="btnNewProduct" runat="server" OnClick="btnNewProduct_Click" Text="Add Product" CssClass="list-group-item active waves-effect mb-2" ValidationGroup="AdminButtons" />
+                            </li>--%>
+                            <li>
+                                <asp:Button ID="btnhome" runat="server" OnClick="btnhome_Click" Text="Homepage" CssClass="list-group-item waves-effect active mb-2" ValidationGroup="AdminButtons" />
+                            </li>
+                            <li>
+                                <asp:Button ID="btnlogout" runat="server" OnClick="btnlogout_Click" Text="Logout" CssClass="list-group-item waves-effect active mb-2" ValidationGroup="AdminButtons" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Sidebar -->
+            </header>
+
+            <!--Main layout-->
+
+            <main class="pt-5">
+            <div class="container-fluid mt-5">
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+                 </main>
+
+        </div>
+    </form>
+
+
+    <script src="assets/jquery/bootstrap.min.js"></script>
+    <script src="assets/js/mdb.min.js"></script>
+
+
+</body>
+</html>

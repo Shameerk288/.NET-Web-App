@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EcommerceProjectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbladmin">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="useremail" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblbrand">
+          <Key>
+            <PropertyRef Name="brand_id" />
+          </Key>
+          <Property Name="brand_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="brandname" Type="nvarchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblcustomer">
+          <Key>
+            <PropertyRef Name="customerid" />
+          </Key>
+          <Property Name="customerid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customername" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="customeremail" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblproduct">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="productdesc" Type="nvarchar" MaxLength="150" />
+          <Property Name="productprice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="productqty" Type="int" Nullable="false" />
+          <Property Name="productimage" Type="nvarchar" MaxLength="100" />
+          <Property Name="brand_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tblshoppingcart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="productid" Type="int" />
+          <Property Name="visitorid" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_tblproduct_tblbrand">
+          <End Role="tblbrand" Type="Self.tblbrand" Multiplicity="0..1" />
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblbrand">
+              <PropertyRef Name="brand_id" />
+            </Principal>
+            <Dependent Role="tblproduct">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblshoppingcart_tblproduct">
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="0..1" />
+          <End Role="tblshoppingcart" Type="Self.tblshoppingcart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblproduct">
+              <PropertyRef Name="productid" />
+            </Principal>
+            <Dependent Role="tblshoppingcart">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="chk_customer_email" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="chk_email" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="customershoppingcartdetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="customerid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="delete_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteCartProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteproduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="get_admins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="get_specific_brand_products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="brandname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="getbrands" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getproductdetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="login_customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="login_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="shoppingcartdetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="visitorid" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="EcommerceProjectDBModelStoreContainer">
+          <EntitySet Name="tbladmin" EntityType="Self.tbladmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblbrand" EntityType="Self.tblbrand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblcustomer" EntityType="Self.tblcustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblproduct" EntityType="Self.tblproduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblshoppingcart" EntityType="Self.tblshoppingcart" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblproduct_tblbrand" Association="Self.FK_tblproduct_tblbrand">
+            <End Role="tblbrand" EntitySet="tblbrand" />
+            <End Role="tblproduct" EntitySet="tblproduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblshoppingcart_tblproduct" Association="Self.FK_tblshoppingcart_tblproduct">
+            <End Role="tblproduct" EntitySet="tblproduct" />
+            <End Role="tblshoppingcart" EntitySet="tblshoppingcart" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EcommerceProjectDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbladmin">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="useremail" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblbrand">
+          <Key>
+            <PropertyRef Name="brand_id" />
+          </Key>
+          <Property Name="brand_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="brandname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblproducts" Relationship="Self.FK_tblproduct_tblbrand" FromRole="tblbrand" ToRole="tblproduct" />
+        </EntityType>
+        <EntityType Name="tblcustomer">
+          <Key>
+            <PropertyRef Name="customerid" />
+          </Key>
+          <Property Name="customerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customername" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customeremail" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblproduct">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productdesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="productprice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="productqty" Type="Int32" Nullable="false" />
+          <Property Name="productimage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="brand_id" Type="Int32" />
+          <NavigationProperty Name="tblbrand" Relationship="Self.FK_tblproduct_tblbrand" FromRole="tblproduct" ToRole="tblbrand" />
+          <NavigationProperty Name="tblshoppingcarts" Relationship="Self.FK_tblshoppingcart_tblproduct" FromRole="tblproduct" ToRole="tblshoppingcart" />
+        </EntityType>
+        <EntityType Name="tblshoppingcart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="Int32" />
+          <Property Name="productid" Type="Int32" />
+          <Property Name="visitorid" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblproduct" Relationship="Self.FK_tblshoppingcart_tblproduct" FromRole="tblshoppingcart" ToRole="tblproduct" />
+        </EntityType>
+        <Association Name="FK_tblproduct_tblbrand">
+          <End Role="tblbrand" Type="Self.tblbrand" Multiplicity="0..1" />
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblbrand">
+              <PropertyRef Name="brand_id" />
+            </Principal>
+            <Dependent Role="tblproduct">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblshoppingcart_tblproduct">
+          <End Role="tblproduct" Type="Self.tblproduct" Multiplicity="0..1" />
+          <End Role="tblshoppingcart" Type="Self.tblshoppingcart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblproduct">
+              <PropertyRef Name="productid" />
+            </Principal>
+            <Dependent Role="tblshoppingcart">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EcommerceProjectDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbladmins" EntityType="Self.tbladmin" />
+          <EntitySet Name="tblbrands" EntityType="Self.tblbrand" />
+          <EntitySet Name="tblcustomers" EntityType="Self.tblcustomer" />
+          <EntitySet Name="tblproducts" EntityType="Self.tblproduct" />
+          <EntitySet Name="tblshoppingcarts" EntityType="Self.tblshoppingcart" />
+          <AssociationSet Name="FK_tblproduct_tblbrand" Association="Self.FK_tblproduct_tblbrand">
+            <End Role="tblbrand" EntitySet="tblbrands" />
+            <End Role="tblproduct" EntitySet="tblproducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblshoppingcart_tblproduct" Association="Self.FK_tblshoppingcart_tblproduct">
+            <End Role="tblproduct" EntitySet="tblproducts" />
+            <End Role="tblshoppingcart" EntitySet="tblshoppingcarts" />
+          </AssociationSet>
+          <FunctionImport Name="chk_customer_email" ReturnType="Collection(EcommerceProjectDBModel.chk_customer_email_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="chk_email" ReturnType="Collection(EcommerceProjectDBModel.chk_email_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="customershoppingcartdetails" ReturnType="Collection(EcommerceProjectDBModel.customershoppingcartdetails_Result)">
+            <Parameter Name="customerid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="delete_user">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteCartProduct">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteproduct">
+            <Parameter Name="productid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="get_admins" ReturnType="Collection(EcommerceProjectDBModel.get_admins_Result)" />
+          <FunctionImport Name="get_specific_brand_products" ReturnType="Collection(EcommerceProjectDBModel.get_specific_brand_products_Result)">
+            <Parameter Name="brandname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getbrands" ReturnType="Collection(EcommerceProjectDBModel.getbrands_Result)" />
+          <FunctionImport Name="getproductdetails" ReturnType="Collection(EcommerceProjectDBModel.getproductdetails_Result)" />
+          <FunctionImport Name="login_customer" ReturnType="Collection(EcommerceProjectDBModel.login_customer_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="login_user" ReturnType="Collection(EcommerceProjectDBModel.login_user_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="shoppingcartdetails" ReturnType="Collection(EcommerceProjectDBModel.shoppingcartdetails_Result)">
+            <Parameter Name="visitorid" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="chk_customer_email_Result">
+          <Property Type="Int32" Name="customerid" Nullable="false" />
+          <Property Type="String" Name="customername" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="customeremail" Nullable="false" MaxLength="40" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="chk_email_Result">
+          <Property Type="Int32" Name="userid" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="useremail" Nullable="false" MaxLength="35" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="customershoppingcartdetails_Result">
+          <Property Type="String" Name="productimage" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="productname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="productdesc" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="productprice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="productqty" Nullable="false" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="customerid" Nullable="true" />
+          <Property Type="Int32" Name="productid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_admins_Result">
+          <Property Type="Int32" Name="userid" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="useremail" Nullable="false" MaxLength="35" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_specific_brand_products_Result">
+          <Property Type="Int32" Name="productid" Nullable="false" />
+          <Property Type="String" Name="productname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="productdesc" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="productprice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="productqty" Nullable="false" />
+          <Property Type="String" Name="productimage" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="brandname" Nullable="false" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="getbrands_Result">
+          <Property Type="Int32" Name="brand_id" Nullable="false" />
+          <Property Type="String" Name="brandname" Nullable="false" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="getproductdetails_Result">
+          <Property Type="Int32" Name="productid" Nullable="false" />
+          <Property Type="String" Name="productname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="productdesc" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="productprice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="productqty" Nullable="false" />
+          <Property Type="String" Name="productimage" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="brandname" Nullable="false" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="login_customer_Result">
+          <Property Type="Int32" Name="customerid" Nullable="false" />
+          <Property Type="String" Name="customername" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="customeremail" Nullable="false" MaxLength="40" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="login_user_Result">
+          <Property Type="Int32" Name="userid" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="useremail" Nullable="false" MaxLength="35" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="shoppingcartdetails_Result">
+          <Property Type="String" Name="productimage" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="productname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="productdesc" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="productprice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="productqty" Nullable="false" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="customerid" Nullable="true" />
+          <Property Type="Int32" Name="productid" Nullable="true" />
+          <Property Type="String" Name="visitorid" Nullable="true" MaxLength="200" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EcommerceProjectDBModelStoreContainer" CdmEntityContainer="EcommerceProjectDBEntities">
+          <EntitySetMapping Name="tbladmins">
+            <EntityTypeMapping TypeName="EcommerceProjectDBModel.tbladmin">
+              <MappingFragment StoreEntitySet="tbladmin">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="useremail" ColumnName="useremail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblbrands">
+            <EntityTypeMapping TypeName="EcommerceProjectDBModel.tblbrand">
+              <MappingFragment StoreEntitySet="tblbrand">
+                <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+                <ScalarProperty Name="brandname" ColumnName="brandname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblcustomers">
+            <EntityTypeMapping TypeName="EcommerceProjectDBModel.tblcustomer">
+              <MappingFragment StoreEntitySet="tblcustomer">
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="customername" ColumnName="customername" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="customeremail" ColumnName="customeremail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblproducts">
+            <EntityTypeMapping TypeName="EcommerceProjectDBModel.tblproduct">
+              <MappingFragment StoreEntitySet="tblproduct">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="productdesc" ColumnName="productdesc" />
+                <ScalarProperty Name="productprice" ColumnName="productprice" />
+                <ScalarProperty Name="productqty" ColumnName="productqty" />
+                <ScalarProperty Name="productimage" ColumnName="productimage" />
+                <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblshoppingcarts">
+            <EntityTypeMapping TypeName="EcommerceProjectDBModel.tblshoppingcart">
+              <MappingFragment StoreEntitySet="tblshoppingcart">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="visitorid" ColumnName="visitorid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="chk_customer_email" FunctionName="EcommerceProjectDBModel.Store.chk_customer_email">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.chk_customer_email_Result">
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="customername" ColumnName="customername" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="customeremail" ColumnName="customeremail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="chk_email" FunctionName="EcommerceProjectDBModel.Store.chk_email">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.chk_email_Result">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="useremail" ColumnName="useremail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="customershoppingcartdetails" FunctionName="EcommerceProjectDBModel.Store.customershoppingcartdetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.customershoppingcartdetails_Result">
+                <ScalarProperty Name="productimage" ColumnName="productimage" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="productdesc" ColumnName="productdesc" />
+                <ScalarProperty Name="productprice" ColumnName="productprice" />
+                <ScalarProperty Name="productqty" ColumnName="productqty" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="delete_user" FunctionName="EcommerceProjectDBModel.Store.delete_user" />
+          <FunctionImportMapping FunctionImportName="deleteCartProduct" FunctionName="EcommerceProjectDBModel.Store.deleteCartProduct" />
+          <FunctionImportMapping FunctionImportName="deleteproduct" FunctionName="EcommerceProjectDBModel.Store.deleteproduct" />
+          <FunctionImportMapping FunctionImportName="get_admins" FunctionName="EcommerceProjectDBModel.Store.get_admins">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.get_admins_Result">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="useremail" ColumnName="useremail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_specific_brand_products" FunctionName="EcommerceProjectDBModel.Store.get_specific_brand_products">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.get_specific_brand_products_Result">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="productdesc" ColumnName="productdesc" />
+                <ScalarProperty Name="productprice" ColumnName="productprice" />
+                <ScalarProperty Name="productqty" ColumnName="productqty" />
+                <ScalarProperty Name="productimage" ColumnName="productimage" />
+                <ScalarProperty Name="brandname" ColumnName="brandname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getbrands" FunctionName="EcommerceProjectDBModel.Store.getbrands">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.getbrands_Result">
+                <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+                <ScalarProperty Name="brandname" ColumnName="brandname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getproductdetails" FunctionName="EcommerceProjectDBModel.Store.getproductdetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.getproductdetails_Result">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="productdesc" ColumnName="productdesc" />
+                <ScalarProperty Name="productprice" ColumnName="productprice" />
+                <ScalarProperty Name="productqty" ColumnName="productqty" />
+                <ScalarProperty Name="productimage" ColumnName="productimage" />
+                <ScalarProperty Name="brandname" ColumnName="brandname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="login_customer" FunctionName="EcommerceProjectDBModel.Store.login_customer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.login_customer_Result">
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="customername" ColumnName="customername" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="customeremail" ColumnName="customeremail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="login_user" FunctionName="EcommerceProjectDBModel.Store.login_user">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.login_user_Result">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="useremail" ColumnName="useremail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="shoppingcartdetails" FunctionName="EcommerceProjectDBModel.Store.shoppingcartdetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EcommerceProjectDBModel.shoppingcartdetails_Result">
+                <ScalarProperty Name="productimage" ColumnName="productimage" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="productdesc" ColumnName="productdesc" />
+                <ScalarProperty Name="productprice" ColumnName="productprice" />
+                <ScalarProperty Name="productqty" ColumnName="productqty" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="visitorid" ColumnName="visitorid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

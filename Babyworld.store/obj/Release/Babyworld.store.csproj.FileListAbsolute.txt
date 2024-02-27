@@ -1,0 +1,10 @@
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\Babyworld.store.dll.config
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\Babyworld.store.dll
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\Babyworld.store.pdb
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\EntityFramework.dll
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\bin\EntityFramework.xml
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Release\Babyworld.store.dll
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Release\Babyworld.store.pdb
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Release\Babyworld.store.csproj.AssemblyReference.cache
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Release\Babyworld.store.csproj.CoreCompileInputs.cache
+D:\Documents1\Misc\Babyworld.store\Babyworld.store\obj\Release\Babyworld.store.csproj.CopyComplete
